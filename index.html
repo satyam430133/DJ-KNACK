@@ -15,6 +15,16 @@
 		<link rel="stylesheet" href="maincss.css"><!-- INCLUDES THE CSS FRAMEWORK VIA #IMPORT AND SASS -->
 		<link rel="shortcut icon" type="image/png" href="main_logo.png"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/venobox@2.0.4/venobox/venobox.min.css" />
+    <script src="https://unpkg.com/venobox@2.0.4/venobox/venobox.min.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        new VenoBox({
+          selector: '.venobox'
+        });
+      });
+    </script>
 </head>
 	<body class="qt-debug-disabled">
 	<!-- QT HEADER END ================================ -->
@@ -199,13 +209,13 @@
                 <!-- Instagram -->
                 <a href="https://www.instagram.com/_dj_knack_/#" target="_blank" style="display: flex; align-items: center; margin-bottom: 20px; text-decoration: none; color: #fff;">
                   <i class="fab fa-instagram" style="color:#E4405F; font-size: 26px; width: 35px;"></i>
-                  <span style="margin-left: 12px;">@dj_knack</span>
+                  <span style="margin-left: 12px;">@_dj_knack_</span>
                 </a>
 
                 <!-- Snapchat -->
                 <a href="https://www.snapchat.com/add/kartikverma_01?share_id=LhNZvRamTlo&locale=en-IN" target="_blank" style="display: flex; align-items: center; margin-bottom: 20px; text-decoration: none; color: #fff;">
                   <i class="fab fa-snapchat-ghost" style="color:#FFFC00; font-size: 26px; width: 35px;"></i>
-                  <span style="margin-left: 12px;">@_djknack04</span>
+                  <span style="margin-left: 12px;">@kartikverma_01</span>
                 </a>
 
                 <!-- Email -->
@@ -264,21 +274,62 @@
 		<!-- ====================== SECTION PRESSKIT END ================================================ -->
 
 		<!-- ====================== SECTION VIDEOS ================================================ -->
-		<div id="video" class="section section-video  scrollspy" >
-			<div class="qt-framed flow-text"  data-100p-top="opacity:0;" data-80p-top="opacity:0;" data-30p-top="opacity:1;" >
-				<h2 class="qt-section-title">VIDEOS<i class="deco"></i></h2>
-				<div class="content">
-					<div class="qtvideos">
-					  	<div><a href="https://www.youtube.com/watch?v=AVIzExWnoNg" class="swipebox"><img src="images/video1.jpg" alt="video"><span class="lnr lnr-film-play"></span></a><h5>Hyte party Ibiza</h5></div>
-					  	<div><a href="https://www.youtube.com/watch?v=VbWB_rvCXTs" class="swipebox"><img src="images/video2.jpg" alt="video"><span class="lnr lnr-film-play"></span></a><h5>Felix Crocher live</h5></div>
-					  	<div><a href="https://www.youtube.com/watch?v=bSto8j4ziCg" class="swipebox"><img src="images/video3.jpg" alt="video"><span class="lnr lnr-film-play"></span></a><h5>Nicole Moudaber live</h5></div>
-					  	<div><a href="https://www.youtube.com/watch?v=rhUvo4xj2oU" class="swipebox"><img src="images/video4.jpg" alt="video"><span class="lnr lnr-film-play"></span></a><h5>Hardwell live</h5></div>
-					  	<div><a href="https://www.youtube.com/watch?v=5vHRUsP20dQ" class="swipebox"><img src="images/video5.jpg" alt="video"><span class="lnr lnr-film-play"></span></a><h5>Maceo Plex live</h5></div>
-					  	
-					</div>
-				</div>
-			</div>
-		</div>
+    <div id="video" class="section section-video scrollspy">
+      <div class="qt-framed flow-text" data-100p-top="opacity:0;" data-80p-top="opacity:0;" data-30p-top="opacity:1;">
+        <h2 class="qt-section-title">VIDEOS<i class="deco"></i></h2>
+        <div class="content">
+          <div class="qtvideos">
+
+            <!-- Video 1 -->
+            <div>
+              <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/shorts/FheXl3GP_OI">
+                <img src="images/video1.jpg" alt="video" style="width:100%; border-radius:8px;">
+                <span class="lnr lnr-film-play" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 36px; color: white;"></span>
+              </a>
+              <h5 style="text-align:center; color:#fff;">Hyte Party Ibiza</h5>
+            </div>
+
+            <!-- Video 2 -->
+            <div>
+              <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/shorts/FheXl3GP_OI">
+                <img src="images/video2.jpg" alt="video" style="width:100%; border-radius:8px;">
+                <span class="lnr lnr-film-play" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 36px; color: white;"></span>
+              </a>
+              <h5 style="text-align:center; color:#fff;">Felix Crocher live</h5>
+            </div>
+
+            <!-- Video 3 -->
+            <div>
+              <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/shorts/FheXl3GP_OI">
+                <img src="images/video3.jpg" alt="video" style="width:100%; border-radius:8px;">
+                <span class="lnr lnr-film-play" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 36px; color: white;"></span>
+              </a>
+              <h5 style="text-align:center; color:#fff;">Nicole Moudaber live</h5>
+            </div>
+
+            <!-- Video 4 -->
+            <div>
+              <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/shorts/FheXl3GP_OI">
+                <img src="images/video4.jpg" alt="video" style="width:100%; border-radius:8px;">
+                <span class="lnr lnr-film-play" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 36px; color: white;"></span>
+              </a>
+              <h5 style="text-align:center; color:#fff;">Hardwell live</h5>
+            </div>
+
+            <!-- Video 5 -->
+            <div>
+              <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/shorts/FheXl3GP_OI">
+                <img src="images/video5.jpg" alt="video" style="width:100%; border-radius:8px;">
+                <span class="lnr lnr-film-play" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 36px; color: white;"></span>
+              </a>
+              <h5 style="text-align:center; color:#fff;">Maceo Plex live</h5>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
 		<!-- ====================== SECTION VIDEOS END ================================================ -->
 				</main>
 				<!-- main section end ================================ -->
