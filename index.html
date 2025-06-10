@@ -18,6 +18,60 @@
     <link rel="stylesheet" href="https://unpkg.com/venobox@2.0.4/venobox/venobox.min.css" />
     <script src="https://unpkg.com/venobox@2.0.4/venobox/venobox.min.js"></script>
 
+	<style>
+		/* Base Styles */
+		.carousel {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 20px;
+			padding: 5px;
+		}
+
+		.music-item {
+			text-align: center;
+			background-color: #1a1a1a;
+			border-radius: 10px;
+			padding: 15px;
+			width: 300px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		}
+
+		.music-item img {
+			width: 100%;
+			height: auto;
+			border-radius: 10px;
+		}
+
+		.music-item h5 {
+			color: white;
+			margin: 10px 0;
+			font-size: 16px;
+		}
+
+		.play-btn {
+			background: #ffffff;
+			border: none;
+			padding: 8px 20px;
+			border-radius: 20px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		/* Responsive Adjustments */
+		@media (max-width: 768px) {
+			.music-item {
+				width: 80%;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.music-item {
+				width: 100%;
+			}
+		}
+	</style>
+
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         new VenoBox({
@@ -89,39 +143,37 @@
 			<audio id="audioPlayer" controls style="width: 100%; margin: 20px 0; display: none;"></audio>
 
 			<!-- Music Carousel -->
-			<div class="carousel" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-
-				<!-- MUSIC ITEM -->
-				<div class="music-item" data-audio="data/music2.mp3" style="text-align: center;">
-					<img src="images/first.jpg" width="300" height="300" alt="Album title">
-					<h5 style="color:white; margin:10px 0;">The Mercury Sun</h5>
+			<div class="carousel">
+				<!-- MUSIC ITEMS -->
+				<div class="music-item" data-audio="data/music2.mp3">
+					<img src="images/first.jpg" alt="Album title">
+					<h5>The Mercury Sun</h5>
 					<button class="play-btn">▶️ Play</button>
 				</div>
 
-				<div class="music-item" data-audio="data/music3.mp3" style="text-align: center;">
-					<img src="images/two.jpg" width="300" height="300" alt="Album title">
-					<h5 style="color:white; margin:10px 0;">Sound Killers EP</h5>
+				<div class="music-item" data-audio="data/music3.mp3">
+					<img src="images/two.jpg" alt="Album title">
+					<h5>Sound Killers EP</h5>
 					<button class="play-btn">▶️ Play</button>
 				</div>
 
-				<div class="music-item" data-audio="data/music4.mp3" style="text-align: center;">
-					<img src="images/three.jpg" width="300" height="300" alt="Album title">
-					<h5 style="color:white; margin:10px 0;">A Trip to Mars</h5>
+				<div class="music-item" data-audio="data/music4.mp3">
+					<img src="images/three.jpg" alt="Album title">
+					<h5>A Trip to Mars</h5>
 					<button class="play-btn">▶️ Play</button>
 				</div>
 
-				<div class="music-item" data-audio="data/music5.mp3" style="text-align: center;">
-					<img src="images/four.jpg" width="300" height="300" alt="Album title">
-					<h5 style="color:white; margin:10px 0;">Technodelic</h5>
+				<div class="music-item" data-audio="data/music5.mp3">
+					<img src="images/four.jpg" alt="Album title">
+					<h5>Technodelic</h5>
 					<button class="play-btn">▶️ Play</button>
 				</div>
 
-				<div class="music-item" data-audio="data/music2.mp3" style="text-align: center;">
-					<img src="images/five.jpg" width="300" height="300" alt="Album title">
-					<h5 style="color:white; margin:10px 0;">Born Sinners</h5>
+				<div class="music-item" data-audio="data/music2.mp3">
+					<img src="images/five.jpg" alt="Album title">
+					<h5>Born Sinners</h5>
 					<button class="play-btn">▶️ Play</button>
 				</div>
-
 			</div>
 
 			<!-- JavaScript -->
