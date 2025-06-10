@@ -82,71 +82,86 @@
 			</div>
 			<h2 class="qt-section-title" data-100p-top="opacity:0;" data-80p-top="opacity:0;" data-50p-top="opacity:1;" data-30p-top="opacity:1;" data-8p-top="opacity:1;" data-0p-top="opacity:0;">MUSIC<i class="deco"></i></h2>
 			<div id="carouselmusic" class="qt-gridstackCarousel-container">
-				<!-- ========= ALBUM LIST ===================================== -->
+			<!-- ========= ALBUM LIST ===================================== -->
 
-				<audio id="audioPlayer" style="display:none;"></audio>
+			<!-- Hidden global audio player -->
+			<!-- Single Audio Player -->
+			<audio id="audioPlayer" controls style="width: 100%; margin: 20px 0; display: none;"></audio>
 
-				<!-- Carousel -->
-				<div class="carousel qt-gridstackCarousel" data-vpadding="50" data-time_constant="500"
-					data-dist="-30" data-shift="-20" data-padding="20" data-full_width="0"
-					data-100p-top="opacity:0;" data-80p-top="opacity:0;" data-50p-top="opacity:1;"
-					data-30p-top="opacity:1;" data-top-bottom="opacity:0;">
+			<!-- Music Carousel -->
+			<div class="carousel" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
 
-					<div class="carousel-item" data-audio="data/music2.mp3">
-						<img src="images/first.jpg" width="300" height="300" alt="Album title">
-						<h5>The Mercury Sun</h5>
-					</div>
-
-					<div class="carousel-item" data-audio="data/music3.mp3">
-						<img src="images/two.jpg" width="300" height="300" alt="Album title">
-						<h5>Sound Killers EP</h5>
-					</div>
-
-					<div class="carousel-item" data-audio="data/music4.mp3">
-						<img src="images/three.jpg" width="300" height="300" alt="Album title">
-						<h5>A Trip To Mars</h5>
-					</div>
-
-					<div class="carousel-item" data-audio="data/music5.mp3">
-						<img src="images/four.jpg" width="300" height="300" alt="Album title">
-						<h5>Technodelic</h5>
-					</div>
-
-					<div class="carousel-item" data-audio="data/music2.mp3">
-						<img src="images/five.jpg" width="300" height="300" alt="Album title">
-						<h5>Born Sinners</h5>
-					</div>
-
+				<!-- MUSIC ITEM -->
+				<div class="music-item" data-audio="data/music2.mp3" style="text-align: center;">
+					<img src="images/first.jpg" width="300" height="300" alt="Album title">
+					<h5 style="color:white; margin:10px 0;">The Mercury Sun</h5>
+					<button class="play-btn">▶️ Play</button>
 				</div>
 
-				<!-- JS to handle play/pause toggle -->
-				<script>
-					const audioPlayer = document.getElementById('audioPlayer');
-					let currentAudioSrc = '';
+				<div class="music-item" data-audio="data/music3.mp3" style="text-align: center;">
+					<img src="images/two.jpg" width="300" height="300" alt="Album title">
+					<h5 style="color:white; margin:10px 0;">Sound Killers EP</h5>
+					<button class="play-btn">▶️ Play</button>
+				</div>
 
-					document.querySelectorAll('.carousel-item').forEach(item => {
-						item.addEventListener('click', () => {
-							const newSrc = item.getAttribute('data-audio');
+				<div class="music-item" data-audio="data/music4.mp3" style="text-align: center;">
+					<img src="images/three.jpg" width="300" height="300" alt="Album title">
+					<h5 style="color:white; margin:10px 0;">A Trip to Mars</h5>
+					<button class="play-btn">▶️ Play</button>
+				</div>
 
-							// If new song clicked
-							if (newSrc !== currentAudioSrc) {
-								audioPlayer.src = newSrc;
-								currentAudioSrc = newSrc;
-								audioPlayer.play().catch(err => {
-									console.error("Playback error:", err);
-									alert("Playback blocked by browser. Tap again.");
-								});
+				<div class="music-item" data-audio="data/music5.mp3" style="text-align: center;">
+					<img src="images/four.jpg" width="300" height="300" alt="Album title">
+					<h5 style="color:white; margin:10px 0;">Technodelic</h5>
+					<button class="play-btn">▶️ Play</button>
+				</div>
+
+				<div class="music-item" data-audio="data/music2.mp3" style="text-align: center;">
+					<img src="images/five.jpg" width="300" height="300" alt="Album title">
+					<h5 style="color:white; margin:10px 0;">Born Sinners</h5>
+					<button class="play-btn">▶️ Play</button>
+				</div>
+
+			</div>
+
+			<!-- JavaScript -->
+			<script>
+				const audioPlayer = document.getElementById('audioPlayer');
+				let currentButton = null;
+
+				document.querySelectorAll('.music-item').forEach(item => {
+					const button = item.querySelector('.play-btn');
+					const audioSrc = item.getAttribute('data-audio');
+
+					button.addEventListener('click', () => {
+						if (audioPlayer.src.includes(audioSrc)) {
+							// Toggle pause/play on the same song
+							if (audioPlayer.paused) {
+								audioPlayer.play();
+								button.innerText = "⏸️ Pause";
 							} else {
-								// Same song clicked → toggle play/pause
-								if (audioPlayer.paused) {
-									audioPlayer.play();
-								} else {
-									audioPlayer.pause();
-								}
+								audioPlayer.pause();
+								button.innerText = "▶️ Play";
 							}
-						});
+						} else {
+							// Play a new song
+							audioPlayer.src = audioSrc;
+							audioPlayer.style.display = "block";
+							audioPlayer.play();
+
+							// Reset previous button
+							if (currentButton) currentButton.innerText = "▶️ Play";
+
+							button.innerText = "⏸️ Pause";
+							currentButton = button;
+						}
 					});
-				</script>
+				});
+
+				audioPlayer.addEventListener('ended', () => {
+					if (currentButton) currentButton.innerText = "▶️ Play";
+				});
+			</script>
 
 
 				<!-- ========= ALBUM LIST END ===================================== -->
@@ -331,7 +346,7 @@
             <!-- Video 5 -->
             <div>
               <a class="venobox" data-autoplay="true" data-vbtype="video" href="https://www.youtube.com/shorts/Vbvq-umTHnw">
-                <img src="images/img22246561654564.jpg" alt="video" style="width:100%; border-radius:8px;">
+                <img src="images/mybar.jpg" alt="video" style="width:100%; border-radius:8px;">
                 <span class="lnr lnr-film-play" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 36px; color: white;"></span>
               </a>
               <h5 style="text-align:center; color:#fff;"> mybarheadquarters </h5>
