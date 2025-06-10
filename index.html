@@ -85,6 +85,7 @@
 			<!-- ========= ALBUM LIST ===================================== -->
 
 			<!-- Hidden global audio player -->
+			<!-- Single Audio Player -->
 			<audio id="audioPlayer" controls style="width: 100%; margin: 20px 0; display: none;"></audio>
 
 			<!-- Music Carousel -->
@@ -133,35 +134,32 @@
 					const audioSrc = item.getAttribute('data-audio');
 
 					button.addEventListener('click', () => {
-						// If same song, toggle play/pause
 						if (audioPlayer.src.includes(audioSrc)) {
+							// Toggle pause/play on the same song
 							if (audioPlayer.paused) {
 								audioPlayer.play();
 								button.innerText = "⏸️ Pause";
-								audioPlayer.style.display = "block"; // Show player
 							} else {
 								audioPlayer.pause();
 								button.innerText = "▶️ Play";
-								audioPlayer.style.display = "none"; // Hide player
 							}
 						} else {
-							// Play new song
+							// Play a new song
 							audioPlayer.src = audioSrc;
+							audioPlayer.style.display = "block";
 							audioPlayer.play();
-							audioPlayer.style.display = "block"; // Show player
 
 							// Reset previous button
 							if (currentButton) currentButton.innerText = "▶️ Play";
+
 							button.innerText = "⏸️ Pause";
 							currentButton = button;
 						}
 					});
 				});
 
-				// When song ends
 				audioPlayer.addEventListener('ended', () => {
 					if (currentButton) currentButton.innerText = "▶️ Play";
-					audioPlayer.style.display = "none"; // Hide when song ends
 				});
 			</script>
 
